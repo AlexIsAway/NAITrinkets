@@ -17,11 +17,17 @@
    - Obtain a **File Domain Service Key** from your Hydrus Client.
    - Obtain an **Access Key** from your Hydrus Client.
 
+4. **ExifTool EXE**:
+   - Obtain the exiftool exe from [exiftool's page](https://exiftool.org/)
+
 ### Configuration
 When running the Python file, you need to configure the following parameters:
 - **Import Path**: Specify the path to the import file.
 - **Service Key**: Use the File Domain Service Key obtained from Hydrus.
 - **Access Key**: Use the Access Key obtained from Hydrus.
+
+You also need to put the downloaded exiftool file into the same directory as the python file
+Additionally you need to rename the exiftool file from `exiftool(-k)` to `exiftool`
 
 ### Running the Python File
 1. Open a terminal or command prompt.
