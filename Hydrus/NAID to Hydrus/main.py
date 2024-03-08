@@ -35,16 +35,25 @@ def mainMenu(inp = None):
         servicekey = configData["serviceKey"]
     elif regularImport == "2":
         importPath = input("Enter the path to the directory you want to import (entire absolute path):\n")
+        if os.path.exists(importPath) == False:
+            print('Invalid Path')
+            mainMenu('')
+            return
         client = hydrus_api.Client(input("Enter your access key:\n"))
         servicekey = input("Enter a file domain service key:\n")
         config.write(json.dumps({"importPath": importPath, "accessKey": client.access_key, "serviceKey": servicekey}))
         mainMenu()
+        return
     elif (regularImport == "1" or regularImport == "0") and confdata == "":
         print('No Config Found')
         importPath = input("Enter the path to the directory you want to import (entire absolute path):\n")
+        if os.path.exists(importPath) == False:
+            print('Invalid Path')
+            mainMenu('')
+            return
         client = hydrus_api.Client(input("Enter your access key:\n"))
         servicekey = input("Enter a file domain service key:\n")
-        config.write(json.dumps({"importPath": importPath, "accessKey": client.access_key, "serviceKey": servicekey}))
+        config.write(json.dumps({"importPath": importPath, "accessKey": client.access_key, "serviceKey": servicekey})) 
     print(importPath,client.access_key,servicekey)
 mainMenu()
 if importPath == "" or client == None or servicekey == "":
