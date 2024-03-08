@@ -64,7 +64,7 @@ def mainMenu(inp = None):
         config.write(json.dumps({"importPath": importPath, "accessKey": "", "serviceKey": ""}))
     print(importPath,client.access_key,servicekey)
 mainMenu()
-if importPath == "" or client == None or servicekey == "":
+if importPath == "":
     mainMenu(True)
 allFiles = os.listdir(importPath)
 et = exiftool.ExifToolHelper()
