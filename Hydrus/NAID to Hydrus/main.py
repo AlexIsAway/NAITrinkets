@@ -9,7 +9,14 @@ currentTagList = []
 importPath = ""
 client = None;
 servicekey = ""
-config = open("config.json", 'r+')
+config = None
+try:
+    config = open("config.json", "r+")
+except:
+    config = open("config.json", "w+")
+    config.write("")
+    config.close()
+    config = open("config.json", "r+")
 def mainMenu(inp = None):
     global regularImport
     global importPath
