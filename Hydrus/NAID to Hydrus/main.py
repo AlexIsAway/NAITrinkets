@@ -39,7 +39,7 @@ def mainMenu(inp = None):
         servicekey = input("Enter a file domain service key:\n")
         config.write(json.dumps({"importPath": importPath, "accessKey": client.access_key, "serviceKey": servicekey}))
         mainMenu()
-    elif regularImport == "1" and confdata == "":
+    elif (regularImport == "1" or regularImport == "0") and confdata == "":
         print('No Config Found')
         importPath = input("Enter the path to the directory you want to import (entire absolute path):\n")
         client = hydrus_api.Client(input("Enter your access key:\n"))
